@@ -16,6 +16,7 @@ Mining script for Ubuntu Server v20.04
  > sudo update-grub
  
  > ls /sys/class/net/
+
 	eth0  lo  
 	# eth0 появится после reboot (сеть работать не будет, меняем "netplan" до reboot чтобы не терять сеть)
  
@@ -40,10 +41,11 @@ Mining script for Ubuntu Server v20.04
 #### 8) Setup a Firewall with UFW
  > ./ufw.setup.sh
 ##  Тонкая настройка
- > ../minerus20.04.conf.sh # Кошельки и адреса пулов (достаточно иметь адреса: ETH,ETC,Zil)
+ > ../minerus20.04.conf.sh # Кошельки и адреса пулов (для настройки достаточно иметь адреса: ETH,ETC,Zil)
 
- > ../minerus20.04.log.sh # Логи
+ > ../minerus20.04.log.sh # Логи текущего майнинга
 
- > ../amdcovc-0.4.1.1/amdcovc -v # Смотрим разрешённые значения и вставляем в ../amdcovc-0.4.1.1/amdcovc.sh
+ > ../amdcovc-0.4.1.1/amdcovc -v 
 
+	Смотрим разрешённые значения и понижаем частоту ядра в ../amdcovc-0.4.1.1/amdcovc.sh для снижения температуры и мощности, проверяем запустив ../amdcovc-0.4.1.1/amdcovc.sh
 
