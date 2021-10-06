@@ -33,6 +33,14 @@ Mining script for Ubuntu Server v20.04
 #### 5) Install amdcovc (Оптимизация и даунвольт)
  > ./amdcovc.create.sh 
 #### 6) Install miner lolminer
- > ./lolminer.download.sh
+ > ./lolMiner.create.sh
 #### 7) Install mine service
  > ./mining_mine.service.create.sh
+##  Тонкая настройка
+ > ../minerus20.04.conf.sh # Кошелька и адреса пулов
+
+ > ../minerus20.04.log.sh # Логи
+
+ > ../amdcovc-0.4.1.1/amdcovc -v # Смотрим разрешённые значения и вставляем в ../amdcovc-0.4.1.1/amdcovc.sh
+ 
+

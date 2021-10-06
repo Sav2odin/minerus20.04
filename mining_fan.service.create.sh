@@ -32,4 +32,6 @@ sudo systemctl start $ProjectName.fan.service
 sudo systemctl enable $ProjectName.fan.service
 sudo systemctl status $ProjectName.fan.service
 #systemctl disable miningFan.service
+#systemctl stop miningFan.service
 #rm /etc/systemd/system/miningFan.service
+#sudo systemctl daemon-reload

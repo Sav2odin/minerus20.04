@@ -36,3 +36,4 @@ sudo systemctl status $ProjectName.mine.service
 #sudo systemctl stop amdmining.service
 #sudo systemctl disable amdmining.service
 #sudo rm /etc/systemd/system/amdmining.service
+#sudo systemctl daemon-reload
