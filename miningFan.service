@@ -1,0 +1,20 @@
+# /etc/systemd/system/miningFan.service
+[Unit]
+Description=Amd card cooler auto speed
+After=syslog.target
+Wants=graphical.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ethereum
+User=root
+ExecStart=/bin/bash /home/ethereum/autofan.bash
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#systemctl daemon-reload
+#systemctl status miningFan.service
+#systemctl enable miningFan.service

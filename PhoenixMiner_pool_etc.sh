@@ -1,0 +1,1 @@
+/home/ethereum/PhoenixMiner/PhoenixMiner -pool etc-eu1.nanopool.org:19999 -ewal 0x7E24c70d0a94B0b8A0eCbc8b26E5898A491AF384.ETCtest/Sav2odin@gmail.com  -epsw x -mode 1 -Rmode 1 -mport 0 -etha 0 -retrydelay 1 -ftime 55 -tt 79 -ttli 77 -eres 0  -tstop 95 -tstart 85 -coin etc -logfile logs
