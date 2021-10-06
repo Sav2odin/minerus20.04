@@ -16,8 +16,8 @@ Mining script for Ubuntu Server v20.04
  > sudo update-grub
  
  > ls /sys/class/net/
- >eth0  lo  
- >eth0 появится после reboot (сеть работать не будет, меняем "netplan" до reboot чтобы не терять сеть)
+	eth0  lo  
+	# eth0 появится после reboot (сеть работать не будет, меняем "netplan" до reboot чтобы не терять сеть)
  
  > nano /etc/netplan/00-installer-config.yaml # или ваши буквы после 00-??????
 
