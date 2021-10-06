@@ -3,7 +3,7 @@ Mining script for Ubuntu Server v20.04
 >## Настраиваем систему для майнинга ##
 > 1. Check kernel
 > 
->     uname -r
+>	uname -r
 >> 5.4.0-84-generic
 > 2. For this kernel install amdgpu-pro-21.30-1290604-ubuntu-20.04.tar.xz (https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-20-50)
 > 
@@ -32,19 +32,19 @@ Mining script for Ubuntu Server v20.04
 >     netplan generate &&netplan apply
 
 >##  Подготовка системы закончена, ставим управление вентилятором, управление частотой ядра, майнер, сервис майнинга, Firewall. ##
->4. Install auto-fan service
+> 4. Install auto-fan service
 > 
 >     ./mining_fan.service.create.sh 
->5. Install amdcovc (Оптимизация и даунвольт)
+> 5. Install amdcovc (Оптимизация и даунвольт)
 > 
 >     ./amdcovc.create.sh 
->6. Install miner lolminer
+> 6. Install miner lolminer
 > 
 >     ./lolMiner.create.sh
->7. Install mine service
+> 7. Install mine service
 > 
 >     ./mining_mine.service.create.sh
->8. Setup a Firewall with UFW
+> 8. Setup a Firewall with UFW
 > 
 >     ./ufw.setup.sh
 >##  Тонкая настройка ##
