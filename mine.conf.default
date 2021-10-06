@@ -1,10 +1,10 @@
 echo "This is the sourced code from Mining"
 Worker=$(hostname)
 MineName="LolMinerEtcZil"
-MinePachBin="$(dirname "$0")/lolMiner/lolMiner"
 EtcWallet="0x7e24c70d0a94b0b8a0ecbc8b26e5898a491af384"
 ZilWallet="zil10qdxdrfz92r25mensa8lgrvxr4dym7nz9a64za"
 EthWallet="0xb5519f097d67044ccf5d11fe4808b0f6fd78d200"
-EtcPool="etc-eu1.nanopool.org:19999"
 EtcZilPool="eu.ezil.me:4444"
+EtcPool="etc-eu1.nanopool.org:19999"
 eMail="mail@gmail.com"
+Timeout=1

@@ -1,49 +1,62 @@
 #!/bin/bash
-PathHome=$(dirname "$0")
-PathConf="$PathHome."
-PathLogs="$PathHome."
-
-#echo "$PathLogs"
+PathHome=$(dirname $(readlink -f $0))
+#$(cd "$(dirname "$0")"; pwd)
+PathScript=$(dirname $PathHome)
+PathConf=$PathScript
+PathLogs="$PathConf"
+ProjectName="${PathHome##*/}"
+echo "$PathHome"
 # Configurations
-if [ -e $PathConf/mine.conf ]
+if [ -e $PathConf/$ProjectName.conf ]
 then
-	echo "Config: $PathConf/mine.conf"
+	echo "Config: $PathConf/$ProjectName.conf"
+	echo "Logfile: $PathLogs/$ProjectName.log"
 else
-	cp $PathHome/mine.conf $PathConf/mine.conf 
+	cp $PathHome/mine.conf.default "$PathConf/$ProjectName.conf" 
+	echo "sudo nano "$PathConf"/"$ProjectName".conf" > "$PathScript/$ProjectName.conf.sh"
+	sudo chmod +x  "$PathScript/$ProjectName.conf.sh"
+	echo "tail -f "$PathLogs"/"$ProjectName".log" > "$PathScript/$ProjectName.log.sh"
+	sudo chmod +x  "$PathScript/$ProjectName.log.sh"
 fi
-#
-source $PathConf/mine.conf
+source $PathConf/$ProjectName.conf
+#/Configurations
+echo $Timeout
+declare -i nTimeout=$Timeout
+if [ $nTimeout -ge 1 ]
+	 then
+	sleep $nTimeout 
+else
+	sleep 20
+fi
 
-$PathHome/amdcovc-0.4.1.1/amdcovc.sh
-
-echo "$MineName"
+$PathScript/amdcovc-0.4.1.1/amdcovc.sh
 
 if [ "$MineName" == "LolMinerEtc" ]
  then
+	MinePachBin="$PathScript/lolMiner/lolMiner"
 	################################
 	POOL="$EtcPool"
-	#etc-eu1.nanopool.org:19999
 	WALLET="$EtcWallet.$Worker/$eMail"
-	#0x7e24c70d0a94b0b8a0ecbc8b26e5898a491af384.100ratel07/Sav2odin@gmail.com
 	################################
 	cd "$(dirname "$MinePachBin")"
 	echo "MineName:$MineName POOL:$POOL WALLET:$WALLET "
-	./lolMiner --algo ETCHASH --pool $POOL --user $WALLET –statsformat speed,poolHr,shares,sharesPerMin,bestShare,power,hrPerWatt,wattPerHr,coreclk,memclk,coreT,juncT,memT,fanPc --logfile $(dirname "$0")/logs --log on
-	cd "$(dirname "$0")"
+	./lolMiner --algo ETCHASH --pool $POOL --user $WALLET –statsformat speed,poolHr,shares,sharesPerMin,bestShare,power,hrPerWatt,wattPerHr,coreclk,memclk,coreT,juncT,memT,fanPc --logfile $PathLogs/$ProjectName.log --log on
+	cd "$PathHome"
 elif [ "$MineName" == "LolMinerEtcZil" ]
  then
+	MinePachBin="$PathScript/lolMiner/lolMiner"
 	cd "$(dirname "$MinePachBin")"
 	echo "$(dirname "$MinePachBin")" "MineName:$MineName POOL:$EtcZilPool WALLET:$WALLET "
 	# lolMiner.exe --algo ETCHASH --pool eu.ezil.me:4444 --user ETC_WALLET.ZIL_WALLET.WORKER --ethstratum ETHPROXY timeout 10
-	echo "./lolMiner --algo ETCHASH --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --ethstratum ETHPROXY timeout 10 --logfile $(dirname "$0")/logs --log on"
-	./lolMiner --algo ETCHASH --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --ethstratum ETHPROXY timeout 10 --logfile $(dirname "$0")/logs --log on
-	cd "$(dirname "$0")"
+	echo "./lolMiner --algo ETCHASH --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --ethstratum ETHPROXY timeout 10 --logfile $PathLogs/$ProjectName.log --log on"
+	./lolMiner --algo ETCHASH --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --ethstratum ETHPROXY timeout 10 --logfile $PathLogs/$ProjectName.log --log on
+	cd "$PathHome"
  else
  echo "!"
  echo "$MineName" 
 fi
 
-
+#file $ProjectName.conf.default
 #echo "This is the sourced code from the data file."
 #Worker="100ratel07"
 #MineName="LolMinerEtc"

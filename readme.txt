@@ -239,16 +239,11 @@ sudo nano /etc/default/grub
 >
 
 ls /sys/class/net/
-> bond0  bonding_masters  eth0  lo  # появился eth0
+> eth0  lo  # появился eth0
 nano /etc/netplan/00-installer-config.yaml 
 <
 # This is the network config written by 'subiquity'
 network:
-  bonds:
-    bond0:
-      interfaces: []
-      parameters:
-        mode: active-backup
   ethernets:
     eth0:
       dhcp4: true
