@@ -1,6 +1,6 @@
 #!/bin/bash
 PathHome="$(dirname $(readlink -f $0))"
-ProjectName="mineus20.04"
+ProjectName="${PathHome##*/}"
 
 echo "[Unit]
 Description=Amd card mining
