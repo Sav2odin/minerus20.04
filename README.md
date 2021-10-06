@@ -26,8 +26,7 @@ Mining script for Ubuntu Server v20.04
 	      dhcp4: true
 	  version: 2
 
- > netplan generate
- > netplan apply
+ > netplan generate &&netplan apply
 ##  Подготовка системы закончена, ставим управление вентилятором, управление частотой ядра, майнер, сервис майнинга
 #### 4) Install auto-fan service
  > ./mining_fan.service.create.sh 
