@@ -16,7 +16,8 @@ Mining script for Ubuntu Server v20.04
  > sudo update-grub
  
  > ls /sys/class/net/
- eth0  lo  # eth0 появится после reboot (сеть работать не будет, меняем "netplan" до reboot чтобы не терять сеть)
+ >eth0  lo  
+ >eth0 появится после reboot (сеть работать не будет, меняем "netplan" до reboot чтобы не терять сеть)
  
  > nano /etc/netplan/00-installer-config.yaml # или ваши буквы после 00-??????
 
@@ -37,10 +38,10 @@ Mining script for Ubuntu Server v20.04
 #### 7) Install mine service
  > ./mining_mine.service.create.sh
 ##  Тонкая настройка
- > ../minerus20.04.conf.sh # Кошелька и адреса пулов
+ > ../minerus20.04.conf.sh # Кошельки и адреса пулов (достаточно иметь адреса: ETH,ETC,Zil)
 
  > ../minerus20.04.log.sh # Логи
 
  > ../amdcovc-0.4.1.1/amdcovc -v # Смотрим разрешённые значения и вставляем в ../amdcovc-0.4.1.1/amdcovc.sh
- 
+
 
