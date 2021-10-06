@@ -31,22 +31,32 @@ Mining script for Ubuntu Server v20.04
 >     netplan generate &&netplan apply
 
 >##  Подготовка системы закончена, ставим управление вентилятором, управление частотой ядра, майнер, сервис майнинга, Firewall. ##
->4. Install auto-fan service 
+>4. Install auto-fan service
+> 
 >     ./mining_fan.service.create.sh 
->5. Install amdcovc (Оптимизация и даунвольт) 
+>5. Install amdcovc (Оптимизация и даунвольт)
+> 
 >     ./amdcovc.create.sh 
 >6. Install miner lolminer
+> 
 >     ./lolMiner.create.sh
 >7. Install mine service
+> 
 >     ./mining_mine.service.create.sh
 >8. Setup a Firewall with UFW
+> 
 >     ./ufw.setup.sh
 >##  Тонкая настройка ##
 >. Кошельки и адреса пулов (для настройки достаточно иметь адреса: ETH,ETC,Zil)
+> 
 >     ../minerus20.04.conf.sh 
 >. Логи текущего майнинга
+> 
 >     ../minerus20.04.log.sh 
 >. Cнижение температуры и мощности:
+> 
 >     ../amdcovc-0.4.1.1/amdcovc -v 
 > cмотрим разрешённые значения и понижаем частоту ядра в ../amdcovc-0.4.1.1/amdcovc.sh для снижения температуры и мощности, проверяем запустив 
+> 
 >     ../amdcovc-0.4.1.1/amdcovc.sh
+>>
