@@ -39,16 +39,15 @@ if [ "$MineName" == "LolMinerEtc" ]
 	WALLET="$EtcWallet.$Worker/$eMail"
 	################################
 	cd "$(dirname "$MinePachBin")"
-	echo "MineName:$MineName POOL:$POOL WALLET:$WALLET "
-	./lolMiner --algo ETCHASH --pool $POOL --user $WALLET –statsformat speed,poolHr,shares,sharesPerMin,bestShare,power,hrPerWatt,wattPerHr,coreclk,memclk,coreT,juncT,memT,fanPc --logfile $PathLogs/$ProjectName.log --log on
+	echo "MineName:$MineName  --pool $POOL --user $WALLET --logfile $PathLogs/$ProjectName.log"
+	./lolMiner --algo ETCHASH --pool $POOL --user $WALLET --logfile $PathLogs/$ProjectName.log --log on
+	#– statsformat speed,poolHr,shares,sharesPerMin,bestShare,power,hrPerWatt,wattPerHr,coreclk,memclk,coreT,juncT,memT,fanPc
 	cd "$PathHome"
 elif [ "$MineName" == "LolMinerEtcZil" ]
  then
 	MinePachBin="$PathScript/lolMiner/lolMiner"
 	cd "$(dirname "$MinePachBin")"
-	echo "$(dirname "$MinePachBin")" "MineName:$MineName POOL:$EtcZilPool WALLET:$WALLET "
-	# lolMiner.exe --algo ETCHASH --pool eu.ezil.me:4444 --user ETC_WALLET.ZIL_WALLET.WORKER --ethstratum ETHPROXY timeout 10
-	echo "./lolMiner --algo ETCHASH --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --ethstratum ETHPROXY timeout 10 --logfile $PathLogs/$ProjectName.log --log on"
+	echo "MineName:$MineName  --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --logfile $PathLogs/$ProjectName.log"
 	./lolMiner --algo ETCHASH --pool $EtcZilPool --user $EtcWallet.$ZilWallet.$Worker --ethstratum ETHPROXY timeout 10 --logfile $PathLogs/$ProjectName.log --log on
 	cd "$PathHome"
  else
