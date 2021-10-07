@@ -1,7 +1,7 @@
 # minerus20.04 #
-*Mining script for Ubuntu Server 20.04*
+*Mining script for Ubuntu Server 20.04* Ubuntu сервисы для майнинга, логи и конфиги по умолчанию. **Worker = $(hostname)** имя воркера на "майнинг" пуле совпадает с именем хоста убунту. Все пути и имена вписываются в сервисы и конфиги автоматически.
 *********
-## Настраиваем систему для майнинга ##
+ ## Настраиваем систему Ubuntu Server для майнинга ##
  1. Check kernel
 ```
 uname -r
@@ -25,7 +25,7 @@ sudo update-grub
 ```		
 ls /sys/class/net/
 ```
-     eth0 появится после reboot, но сеть работать не будет! Значит меняем "netplan" до reboot чтобы не терять сеть:
+ >eth0 появится после reboot, но сеть работать не будет! Значит меняем "netplan" до reboot чтобы не терять сеть:
 ```
 nano /etc/netplan/00-installer-config.yaml # или ваши буквы после 00-??????
 ```
@@ -40,31 +40,31 @@ network:
 netplan generate &&netplan apply 
 ```
 *********
-##  Подготовка системы закончена, ставим управление вентиляторами, управление видеокартами, майнер, сервис майнинга, Firewall. ##
+ ##Подготовка системы закончена, ставим управление вентиляторами, управление видеокартами, майнер, сервис майнинга, Firewall. ##
 
- 4. Install auto-fan service
+ 4. Install auto-fan service (сервис выбора скорости вентилятора от температуры карты)
 ```
 ./mining_fan.service.create.sh
 ```
- 5. Install amdcovc (Оптимизация и даунвольт)
+ 5. Install amdcovc ( оптимизация и даунвольт )
 ```
 ./amdcovc.create.sh 
 ``` 
- 6. Install miner lolminer
+ 6. Install miner lolminer ( программа майнер )
 ```
 ./lolMiner.create.sh
 ```
- 7. Install mine service
+ 7. Install mine service ( сервис автостарта майнера )
 ```
 ./mining_mine.service.create.sh
 ``` 
- 8. Setup a Firewall with UFW
+ 8. Setup a Firewall with UFW ( фаервол )
  ```
 ./ufw.setup.sh
  ```
 *********
-##  Тонкая настройка ##
- Кошельки и адреса пулов (для настройки достаточно иметь адреса: ETH,ETC,Zil)
+##Тонкая настройка##
+ Кошельки ETH,ETC,Zil ( по умолчанию всё настроено, достаточно поменять ETC адрес )
 ```
 ../minerus20.04.conf.sh 
 ```
@@ -73,11 +73,11 @@ netplan generate &&netplan apply
 ../minerus20.04.log.sh
 ```
  Cнижение температуры и мощности:
- ```
+```
 ../amdcovc-0.4.1.1/amdcovc -v
- ```
-  cмотрим разрешённые значения и понижаем частоту ядра в скрипте ../amdcovc-0.4.1.1/amdcovc.sh - для каждой карты разные. Проверяем запустив
-  ``` 
+```
+ >cмотрим возможное значения и понижаем частоту ядра в скрипте ../amdcovc-0.4.1.1/amdcovc.sh - для каждой карты разное. Проверяем запустив
+``` 
   ../amdcovc-0.4.1.1/amdcovc.sh
-  ```
+```
 *********
