@@ -29,10 +29,10 @@ sudo update-grub
 ```		
 ls /sys/class/net/
 ```
+return "eth0" to Ubuntu. You add /etc/default/grub " net.ifnames=0 biosdevname=0"
  >eth0 появится после reboot, но сеть работать не будет! Значит меняем "netplan" до reboot чтобы не терять сеть:
 ```
-sudo su
-nano /etc/netplan/00-installer-config.yaml # или ваши буквы после 00-??????
+sudo su &&nano /etc/netplan/00-installer-config.yaml # или ваши буквы после 0?-??????
 ```
 ``` 
 network:
