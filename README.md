@@ -51,7 +51,7 @@ netplan generate &&netplan apply
 ```
  git clone https://github.com/Sav2odin/minerus20.04.git &&cd minerus20.04
 ```
- 5. Install auto-fan service (сервис выбора скорости вентилятора от температуры карты _minerus20.04.fan.service_ )
+ 5. Install auto-fan service (сервис выбора скорости вентилятора от температуры _minerus20.04.fan.service_ )
 ```
 ./mining_fan.service.create.sh
 ```
