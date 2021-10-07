@@ -31,6 +31,7 @@ ls /sys/class/net/
 ```
  >eth0 появится после reboot, но сеть работать не будет! Значит меняем "netplan" до reboot чтобы не терять сеть:
 ```
+sudo su
 nano /etc/netplan/00-installer-config.yaml # или ваши буквы после 00-??????
 ```
 ``` 
@@ -42,6 +43,7 @@ network:
 ```
 ```
 netplan generate &&netplan apply 
+reboot
 ```
 * * *
 
