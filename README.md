@@ -42,24 +42,27 @@ netplan generate &&netplan apply
 ```
 *********
  ##Подготовка системы закончена, ставим управление вентиляторами, управление видеокартами, майнер, сервис майнинга, Firewall. ##
-
- 4. Install auto-fan service (сервис выбора скорости вентилятора от температуры карты)
+ 4. Install this scripts: ( скрипты с github.com в ~/minerus20.04 )
+```
+ git clone https://github.com/Sav2odin/minerus20.04.git &&cd minerus20.04
+```
+ 5. Install auto-fan service (сервис выбора скорости вентилятора от температуры карты)
 ```
 ./mining_fan.service.create.sh
 ```
- 5. Install amdcovc ( оптимизация и даунвольт )
+ 6. Install amdcovc ( оптимизация и даунвольт )
 ```
 ./amdcovc.create.sh 
 ``` 
- 6. Install miner lolminer ( программа майнер )
+ 7. Install miner lolminer ( программа майнер )
 ```
 ./lolMiner.create.sh
 ```
- 7. Install mine service ( сервис автостарта майнера )
+ 8. Install mine service ( сервис автостарта майнера )
 ```
 ./mining_mine.service.create.sh
 ``` 
- 8. Setup a Firewall with UFW ( фаервол )
+ 9. Setup a Firewall with UFW ( фаервол )
  ```
 ./ufw.setup.sh
  ```
