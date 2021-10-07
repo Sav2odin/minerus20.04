@@ -1,8 +1,10 @@
 # minerus20.04 #
 *Mining script for **Ubuntu Server 20.04** * 
  Ubuntu сервисы для майнинга, логи и конфиги по умолчанию. **Worker = $(hostname)** имя воркера на "майнинг" пуле совпадает с именем хоста убунту. Все пути и имена вписываются в сервисы и конфиги автоматически.
-*********
- ## Настраиваем систему Ubuntu Server для майнинга ##
+
+* * *
+##Настраиваем систему Ubuntu Server для майнинга##
+
  1. Check kernel
 ```
 uname -r
@@ -40,8 +42,10 @@ network:
 ```
 netplan generate &&netplan apply 
 ```
-*********
- ##Подготовка системы закончена, ставим управление вентиляторами, управление видеокартами, майнер, сервис майнинга, Firewall. ##
+* * *
+
+##Подготовка системы закончена, ставим управление вентиляторами, управление видеокартами, майнер, сервис майнинга, Firewall. ##
+ 
  4. Install this scripts: ( скрипты с github.com в ~/minerus20.04 )
 ```
  git clone https://github.com/Sav2odin/minerus20.04.git &&cd minerus20.04
@@ -66,8 +70,10 @@ netplan generate &&netplan apply
  ```
 ./ufw.setup.sh
  ```
-*********
+* * *
+
 ##Тонкая настройка##
+
  Кошельки ETH,ETC,Zil ( по умолчанию всё настроено, достаточно поменять ETC адрес )
 ```
 ../minerus20.04.conf.sh 
@@ -84,4 +90,4 @@ netplan generate &&netplan apply
 ``` 
   ../amdcovc-0.4.1.1/amdcovc.sh
 ```
-*********
+* * * 
