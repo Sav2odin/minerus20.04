@@ -7,6 +7,8 @@ EtcZilPool="eu.ezil.me:4444"
 EtcPool="etc-eu1.nanopool.org:19999"
 eMail="mail@gmail.com"
 Timeout=1
+NomineTimeout2Reboot=540
+# NomineTimeout2Reboot=0 #no reboot
 MineName="LolMinerEtcZil"
 #select: MineName="LolMinerEtcZil" ;"LolMinerEtc"
 #pool: https://ezil.me

@@ -40,7 +40,7 @@ if [ "$MineName" == "LolMinerEtc" ]
 	################################
 	cd "$(dirname "$MinePachBin")"
 	echo "MineName:$MineName  --pool $POOL --user $WALLET --logfile $PathLogs/$ProjectName.log"
-	./lolMiner --algo ETCHASH --pool $POOL --user $WALLET --logfile $PathLogs/$ProjectName.log --log on
+	./lolMiner --algo ETCHASH --pool $POOL --user $WALLET --ethstratum ETHPROXY timeout 10 --logfile $PathLogs/$ProjectName.log --log on
 	#– statsformat speed,poolHr,shares,sharesPerMin,bestShare,power,hrPerWatt,wattPerHr,coreclk,memclk,coreT,juncT,memT,fanPc
 	cd "$PathHome"
 elif [ "$MineName" == "LolMinerEtcZil" ]
@@ -53,6 +53,27 @@ elif [ "$MineName" == "LolMinerEtcZil" ]
  else
  echo "!"
  echo "$MineName" 
+fi
+# Reboot, from no ping pool or crash lolMiner
+if [ ! -v NomineTimeout2Reboot ] #note the lack of a $ sigil
+then
+    echo "NomineTimeout2Reboot is unset in Config: "$PathConf"/"$ProjectName".conf. To reboot 9 minut"
+	sleep 540
+	echo "reboot"
+elif [ -z "$NomineTimeout2Reboot" ]
+then
+    echo "NomineTimeout2Reboot empty. No reboot."
+else
+	#declare -i nTimeout2Reboot=$NomineTimeout2Reboot
+	if [ $NomineTimeout2Reboot -gt 0 ]
+		 then
+	    echo "Timeout2Reboot "
+	    echo "$NomineTimeout2Reboot"
+		sleep $NomineTimeout2Reboot
+		echo "reboot"
+	else
+	    echo "Timeout2Reboot=0. No reboot."
+	fi
 fi
 
 #file $ProjectName.conf.default
