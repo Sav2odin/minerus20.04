@@ -57,7 +57,7 @@ fi
 # Reboot, from no ping pool or crash lolMiner
 if [ ! -v NomineTimeout2Reboot ] #note the lack of a $ sigil
 then
-    echo "NomineTimeout2Reboot is unset in Config: "$PathConf"/"$ProjectName".conf. To reboot 9 minut"
+    echo "NomineTimeout2Reboot is unset in Config: "$PathConf"/"$ProjectName".conf. To reboot 9 minuts"
 	sleep 540
 	reboot
 elif [ -z "$NomineTimeout2Reboot" ]
