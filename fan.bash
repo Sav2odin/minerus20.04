@@ -63,12 +63,60 @@ then
         echo 190 > "$fname"/pwm1
         cat "$fname"/pwm1
     fi
+elif test $term -ge $((64*1000))
+then
+    if [ $pwm1 -lt 176 -o $pwm1 -gt 180 ]
+    then  
+        chmod +w "$fname"/pwm1
+        echo 180 > "$fname"/pwm1
+        cat "$fname"/pwm1
+    fi
+elif test $term -ge $((63*1000))
+then
+    if [ $pwm1 -lt 171 -o $pwm1 -gt 175 ]
+    then  
+        chmod +w "$fname"/pwm1
+        echo 175 > "$fname"/pwm1
+        cat "$fname"/pwm1
+    fi
+elif test $term -ge $((62*1000))
+then
+    if [ $pwm1 -lt 168 -o $pwm1 -gt 171 ]
+    then  
+        chmod +w "$fname"/pwm1
+        echo 175 > "$fname"/pwm1
+        cat "$fname"/pwm1
+    fi
 elif test $term -ge $((60*1000))
 then
-    if [ $pwm1 -lt 161 -o  $pwm1 -gt 170 ]
+    if [ $pwm1 -lt 161 -o  $pwm1 -gt 168 ]
     then  
         chmod +w "$fname"/pwm1
         echo 170 > "$fname"/pwm1
+        cat "$fname"/pwm1
+    fi
+elif test $term -ge $((59*1000))
+then
+    if [ $pwm1 -lt 155 -o $pwm1 -gt 160 ]
+    then
+        chmod +w "$fname"/pwm1
+        echo 160 > "$fname"/pwm1
+        cat "$fname"/pwm1
+    fi
+elif test $term -ge $((57*1000))
+then
+    if [ $pwm1 -lt 151 -o $pwm1 -gt 155 ]
+    then
+        chmod +w "$fname"/pwm1
+        echo 155 > "$fname"/pwm1
+        cat "$fname"/pwm1
+    fi
+elif test $term -ge $((55*1000))
+then
+    if [ $pwm1 -lt 141 -o $pwm1 -gt 150 ]
+    then
+        chmod +w "$fname"/pwm1
+        echo 140 > "$fname"/pwm1
         cat "$fname"/pwm1
     fi
 elif test $term -ge $((50*1000))
