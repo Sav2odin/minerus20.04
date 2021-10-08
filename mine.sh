@@ -59,7 +59,7 @@ if [ ! -v NomineTimeout2Reboot ] #note the lack of a $ sigil
 then
     echo "NomineTimeout2Reboot is unset in Config: "$PathConf"/"$ProjectName".conf. To reboot 9 minut"
 	sleep 540
-	echo "reboot"
+	reboot
 elif [ -z "$NomineTimeout2Reboot" ]
 then
     echo "NomineTimeout2Reboot empty. No reboot."
@@ -70,7 +70,7 @@ else
 	    echo "Timeout2Reboot "
 	    echo "$NomineTimeout2Reboot"
 		sleep $NomineTimeout2Reboot
-		echo "reboot"
+		reboot
 	else
 	    echo "Timeout2Reboot=0. No reboot."
 	fi
