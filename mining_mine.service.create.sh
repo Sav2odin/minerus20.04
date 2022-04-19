@@ -8,7 +8,7 @@ After=syslog.target
 #After=graphical.target
 #After=multi–user.target
 After=network.target
-Wants=graphical.target
+#Wants=graphical.target
 [Service]
 Type=simple
 WorkingDirectory="$PathHome"
