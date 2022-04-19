@@ -11,3 +11,5 @@ rm /etc/systemd/system/amdmining.service
 systemctl disable miningFan.service
 systemctl stop miningFan.service
 rm /etc/systemd/system/miningFan.service
+
+echo "cp ../Mining/amdcovc-0.4.1.1/amdcovc.sh ../amdcovc-0.4.1.1/amdcovc.sh "
